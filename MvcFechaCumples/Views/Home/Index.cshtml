@@ -1,0 +1,46 @@
+﻿@model IEnumerable<MvcFechaCumples.Models.Cumple>
+@{
+    ViewData["Title"] = "Inicio";
+}
+
+<div class="text-center">
+    <h1 class="display-4">¡Hola!</h1>
+    <!--<p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>-->
+</div>
+
+<h3 class="text-center">Lista de cumpleaños de amigos</h3>
+<br />
+
+<form asp-controller="Home" asp-action="Index" method="get" class="text-right">
+    <p>
+        <input type="text" name="Buscar" />
+        <input type="submit" value="Filtrar" />
+    </p>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaCumple)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FechaCumple)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
